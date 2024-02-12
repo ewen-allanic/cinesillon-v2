@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+
+	<body>
+		{% set route = app.request.attributes.get('_route') %}
+		{% set headerExcludedRoutes = ["admin", "login"] %}
+		{% set footerExcludedRoutes = ["admin", "login"] %}
+
+		{% if route == 'home_page' %}
+			{% include 'partials/home_header.html.twig' %}
+		{% elseif route not in headerExcludedRoutes %}
+			{% include 'partials/header.html.twig' %}
+		{% endif %}
+
+		{% block body %}{% endblock %}
+
+		{% if route not in footerExcludedRoutes %}
+			{% include 'partials/footer.html.twig' %}
+		{% endif %}
+	</body>
+</html>

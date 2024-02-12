@@ -1,0 +1,35 @@
+<header class="h-[450px] bg-[url('~/public/images/homepage-banner.png')] relative flex flex-col items-center justify-between py-8" style="background-position: 51% 87%;">
+	<h1 class="absolute" hidden>CINÉSILLON Collection</h1>
+	<a href="{{ path('home_page') }}" class="absolute w-[400px] top-16">
+		<img src="{{ asset('images/logo-cinecillon.png') }}" alt="">
+	</a>
+	<nav class="flex w-full justify-between items-center container">
+		<a href="#" class="text-white p-link no-underline">Qui suis-je ?</a>
+		<ul class="flex gap-4">
+			<li><img src="{{ asset('images/icon/facebook.png') }}" class="w-9 h-9" alt=""></li>
+			<li><img src="{{ asset('images/icon/instagram.png') }}" class="w-9 h-9" alt=""></li>
+			<li><img src="{{ asset('images/icon/vinyle.png') }}" class="w-9 h-9" alt=""></li>
+		</ul>
+	</nav>
+	<p class="flex self-start flex-col text-white ml-[180px] text-3xl">
+		<span>La musique</span>
+		<span class="ml-8">au service</span>
+		<span class="ml-16">de l'image</span>
+	</p>
+	<div>
+		<form action="#" method="get" class="flex mr-2 p-2 border border-gray-400 bg-white rounded-full px-2.5 py-2 divide-x-2">
+			<div class="flex flex-col">
+				<div class="text-xs mb-[-2px] h-2/4 mt-1 pl-4 text-black font-semibold text-sm">Nom</div>
+				<input type="text" name="Nom" id="name" placeholder="Recherchez un nom" class="w-full h-2/5 text-xs mr-2 pl-4 rounded-md focus:outline-none focus:border-blue-500">
+			</div>
+			<div class="flex flex-col">
+				<div class="text-xs mt-1 mb-[-2px] h-2/4 pl-4 text-black font-semibold text-sm">Titre</div>
+				<input type="text" name="Titre" id="title" placeholder="Recherchez un titre" class="w-full h-2/5 text-xs mr-2 pl-4 rounded-md focus:outline-none focus:border-blue-500">
+			</div>
+			<button type="submit" class="bg-[#FF5E00] hover:bg-[#E65500] text-white py-2 px-4 cursor-pointer text-xs font-medium rounded-full">
+				<img class="h-4 w-4 inline-block mr-1" src="{{ asset('images/search.svg') }}">
+				Rechercher
+			</button>
+		</form>
+	</div>
+</header>

@@ -1,0 +1,10 @@
+<svg id="Composant_5_2" data-name="Composant 5 – 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="40" viewBox="0 0 22 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_24" data-name="Rectangle 24" width="22" height="40" fill="#ff5e00"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_32" data-name="Groupe 32" clip-path="url(#clip-path)">
+    <path id="Tracé_40" data-name="Tracé 40" d="M1.8,40A1.772,1.772,0,0,1,.53,39.467a1.837,1.837,0,0,1,0-2.581L17.646,19.55,1.415,3.117a1.85,1.85,0,0,1,0-2.581,1.787,1.787,0,0,1,2.552,0l17.5,17.725a1.839,1.839,0,0,1,0,2.577L3.072,39.467A1.765,1.765,0,0,1,1.8,40" transform="translate(0.001 -0.003)" fill="#ff5e00"/>
+  </g>
+</svg>

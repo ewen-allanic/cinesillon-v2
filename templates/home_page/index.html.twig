@@ -1,0 +1,156 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ciné Sillon Collection
+{% endblock %}
+
+{% block body %}
+
+	<div class="container m-auto my-10 px-16 pt-8">
+		<div class="flex justify-center">
+			<span class="text-regal-orange text-3xl font-bold">DERNIERS AJOUTS</span>
+		</div>
+
+		{# Three latest movies added #}
+		<h2 class="relative before:absolute before:content-[''] before:w-[7px] before:h-[20px] before:bg-aliceblue before:left-3 before:-top-full before:bg-regal-grey after:content-[''] after:absolute after:index-negative after:w-full after:h-[7px] after:bg-aliceblue after:left-0 after:top-1/2 after:transform after:-translate-y-1/2 after:bg-regal-grey mb-10 mt-16">
+			<span class="bg-regal-grey px-3 py-2 w-fit">FILMS</span>
+		</h2>
+
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+			{% if filmPieces is empty %}
+				<p>Il n'y a pas encore de film</p>
+			{% else %}
+				{% for key, film in filmPieces %}
+					<div class="card">
+						<img src="{{ asset('/images/film' ~ (key + 1) ~ '.png') }}" class="w-[420px] h-[420px]" alt="">
+						<div class="relative bg-regal-grey bg-[url('~/public/images/jsp.svg')] bg-no-repeat bg-right bg-contain p-4">
+							<a href="">
+								<h3 class="font-bold text-xl">
+									{{ film.originalTitle }}
+
+									{% if film.frenchTitle %}
+										|
+										{{ film.frenchTitle }}
+									{% endif %}
+								</h3>
+							</a>
+
+							<p>{{ film.getArtist().getFirstname() }}
+								{{ film.getArtist().getLastname() }}</p>
+							<p>{{ film.realisedAt | date('Y') }}</p>
+							<div class="mt-4">
+								{{ film.createdAt | date('d') }}
+								{{ film.createdAt | date('n') | month_name }}
+								{{ film.createdAt | date('Y') }}
+							</div>
+							<a href="#" class="absolute right-4 bottom-4"><img src="{{ asset('images/orange-arrow.svg') }}" class="" alt=""></a>
+						</div>
+					</div>
+
+
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		{# Three latest albums added #}
+		<h2 class="relative before:absolute before:content-[''] before:w-[7px] before:h-[20px] before:bg-aliceblue before:left-3 before:-top-full before:bg-regal-grey after:content-[''] after:absolute after:index-negative after:w-full after:h-[7px] after:bg-aliceblue after:left-0 after:top-1/2 after:transform after:-translate-y-1/2 after:bg-regal-grey mb-10 mt-16">
+			<span class="bg-regal-grey px-3 py-2 w-fit">ALBUMS</span>
+		</h2>
+
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+			{% if albumPieces is empty %}
+				<p>Il n'y a pas encore d'albums</p>
+			{% else %}
+				{% for key, album in albumPieces %}
+					<div class="card">
+						<img src="{{ asset('/images/album' ~ (key + 1) ~ '.png') }}" class="w-[420px] h-[420px]" alt="">
+						<div class="relative bg-regal-grey bg-[url('~/public/images/jsp.svg')] bg-no-repeat bg-right bg-contain p-4">
+							<a href="">
+								<h3 class="font-bold text-xl">
+									{{ album.originalTitle }}
+									{% if album.frenchTitle is not null %}
+										|
+										{{ album.frenchTitle }}
+									{% endif %}
+								</h3>
+							</a>
+
+							<p>{{ album.getArtist().getFirstname() }}
+								{{ album.getArtist().getLastname() }}</p>
+							<p>{{ album.labelName }}
+								({{ album.realisedAt | date('Y') }})</p>
+							<div class="mt-4">
+								{{ album.createdAt | date('d') }}
+								{{ album.createdAt | date('n') | month_name }}
+								{{ album.createdAt | date('Y') }}
+							</div>
+							<a href="#" class="absolute right-4 bottom-4"><img src="{{ asset('images/orange-arrow.svg') }}" class="" alt=""></a>
+						</div>
+					</div>
+
+
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		{# Three latest artists added #}
+		<h2 class="relative before:absolute before:content-[''] before:w-[7px] before:h-[20px] before:bg-aliceblue before:left-3 before:-top-full before:bg-regal-grey after:content-[''] after:absolute after:index-negative after:w-full after:h-[7px] after:bg-aliceblue after:left-0 after:top-1/2 after:transform after:-translate-y-1/2 after:bg-regal-grey mb-10 mt-16">
+			<span class="bg-regal-grey px-3 py-2 w-fit">ARTISTES</span>
+		</h2>
+
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+			{% if latestArtists is empty %}
+				<p>Il n'y a pas encore d'artistes</p>
+			{% else %}
+				{% for key, artist in latestArtists %}
+					<div class="card">
+						<img src="{{ asset('/images/artist' ~ (key + 1) ~ '.png') }}" class="w-[420px] h-[420px]" alt="">
+						<div class="relative bg-regal-grey bg-[url('~/public/images/jsp.svg')] bg-no-repeat bg-right bg-contain p-4">
+							<a href="">
+								<h3 class="font-bold text-xl">
+									{{ artist.firstname }}
+									{{ artist.lastname }}
+								</h3>
+							</a>
+							<p>
+								<span>{{ artist.dateOfBirth | date('Y') }}</span>
+								{% if artist.dateOfDeath is not null %}
+									<span>
+										-
+										{{ artist.dateOfDeath | date('Y') }}</span>
+								{% endif %}
+							</p>
+
+							<div class="mt-4">
+								{{ artist.createdAt | date('d') }}
+								{{ artist.createdAt | date('n') | month_name }}
+								{{ artist.createdAt | date('Y') }}
+							</div>
+							<a href="#" class="absolute right-4 bottom-4"><img src="{{ asset('images/orange-arrow.svg') }}" class="" alt=""></a>
+						</div>
+					</div>
+
+
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		{# Who am I website description #}
+		<h2 class="relative before:absolute before:content-[''] before:w-[7px] before:h-[20px] before:bg-aliceblue before:left-3 before:-top-full before:bg-regal-grey after:content-[''] after:absolute after:index-negative after:w-full after:h-[7px] after:bg-aliceblue after:left-0 after:top-1/2 after:transform after:-translate-y-1/2 after:bg-regal-grey mb-10 mt-16">
+			<span class="bg-regal-grey px-3 py-2 w-fit">QUI SUIS-JE ?</span>
+		</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+			<div>
+				<img src="{{ asset('images/whoami.png') }}" class="w-[540px] h-[370px]" alt="">
+			</div>
+			<div>
+				<div class=" before:bg-regal-grey mb-0">
+					<span class="bg-regal-grey px-3 py-2 w-fit">Cinesillon collection</span>
+				</div>
+				<p class="border-s-8 border-regal-grey ps-4 pt-4">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus. Urna molestie at elementum eu facilisis. Viverra accumsan in nisl nisi. Odio ut enim blandit volutpat maecenas volutpat. Nisl pretium fusce id velit ut tortor pretium viverra suspendisse. Odio facilisis mauris sit amet. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Et pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Eu lobortis elementum nibh tellus molestie nunc non blandit. Sed faucibus turpis in eu mi bibendum neque egestas congue. Scelerisque fermentum dui faucibus in. Fermentum et sollicitudin ac orci phasellus egestas. Magna fringilla urna porttitor rhoncus dolor purus non enim praesent. Massa eget egestas purus viverra accumsan in nisl. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Netus et malesuada fames ac turpis egestas integer eget aliquet.
+				</p>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

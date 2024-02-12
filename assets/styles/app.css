@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply relative w-full h-full bg-white;
+    }
+}
+
+@layer components {
+    .auth-field {
+        @apply bg-[#f2f2f2] p-[10px] rounded outline-1 focus:ot-p-color;
+    }
+
+    .p-btn {
+        @apply bg-p-color hover:bg-p-color-darker focus:bg-p-color-lighter;
+    }
+
+    .p-link {
+        @apply underline hover:txt-p-color-darker focus:txt-p-color-lighter;
+    }
+
+    .p-link-colored {
+        @apply underline txt-p-color hover:txt-p-color-darker focus:txt-p-color-lighter;
+    }
+
+    /* Mentions légales */
+
+    .ml-article {
+        @apply my-[35px];
+    }
+
+    .ml-art-title {
+        @apply txt-p-color text-2xl font-semibold;
+    }
+
+    .ml-art-sec-title {
+        @apply text-xl my-[15px] font-semibold;
+    }
+
+    .ml-art-content {
+        @apply pl-[10px] my-[20px];
+    }
+
+    .ml-art-list {
+        @apply list-disc ml-[40px];
+    }
+}
+
+@layer utilities {
+    .index-negative {
+        z-index: -1;
+    }
+
+    .bg-p-color {
+        background-color: theme("colors.regal-orange");
+    }
+
+    .bg-p-color-darker {
+        background-color: theme("colors.regal-orange-darker");
+    }
+
+    .bg-p-color-lighter {
+        background-color: theme("colors.regal-orange-lighter");
+    }
+
+    .txt-p-color {
+        color: theme("colors.regal-orange");
+    }
+
+    .txt-p-color-darker {
+        color: theme("colors.regal-orange-darker");
+    }
+
+    .txt-p-color-lighter {
+        color: theme("colors.regal-orange-lighter");
+    }
+
+    .brd-p-color {
+        border-color: theme("colors.regal-orange");
+    }
+
+    .brd-p-color-darker {
+        border-color: theme("colors.regal-orange-darker");
+    }
+
+    .brd-p-color-lighter {
+        border-color: theme("colors.regal-orange-lighter");
+    }
+
+    .ot-p-color {
+        outline-color: theme("colors.regal-orange");
+    }
+
+    .ot-p-color-darker {
+        outline-color: theme("colors.regal-orange-darker");
+    }
+
+    .ot-p-color-lighter {
+        outline-color: theme("colors.regal-orange-lighter");
+    }
+}
